@@ -1,0 +1,55 @@
+#compdef shelf
+_shelf () {
+        local cmds cmd ids
+
+        if [[ "$CURRENT" -lt 2 ]]; then
+
+                return
+
+        elif [[ "$CURRENT" -eq 2 ]]; then
+                
+                # first parameter, the command
+                cmds=('open:Open a previously added mark' 'list:List all marks' 'add:Add a new mark' 'remove:Remove a previously added mark')
+                _describe 'commands' cmds
+
+        elif [[ "$CURRENT" -eq 3 ]]; then 
+                # A first command has already been defined...
+                cmd="${words[2]}"
+                case $cmd in 
+                        "add")
+                                  ;;
+                        "open")
+                                source $HOME/.config/shelf/shelf_list.sh
+
+                                ids=()
+
+                                for key value in ${(@kv)shelf_list};do
+                                        ids+="$key:$value"
+                                done
+
+                                _describe "ids" ids
+                                ;;
+                        "list")
+                                ;;
+                        "remove")
+
+                                source $HOME/.config/shelf/shelf_list.sh
+
+                                ids=()
+
+                                for key value in ${(@kv)shelf_list};do
+                                        ids+="$key:$value"
+                                done
+
+                                _describe "ids" ids
+                                ;;
+                        *)
+                                ;;
+                esac
+        elif [[ "$CURRENT" -eq 4 ]]; then 
+                _alternative \
+                        'files:filename:_files'
+        fi
+}
+
+_shelf "$@"
