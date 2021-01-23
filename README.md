@@ -15,3 +15,8 @@ usage: shelf [command] <?arg(s)>
 	list 	List all bmarks
 
 ```
+
+## Requirements
+For Linux-based distros, a Resource Opener suchs as [xdg-open](https://wiki.archlinux.org/index.php/default_applications#xdg-open)
+or [mimeo](https://wiki.archlinux.org/index.php/default_applications#mimeo) is required. 
+For macOS, the ``open`` should be enough. 
