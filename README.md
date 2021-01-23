@@ -1,6 +1,6 @@
 # Shelf 
-Shelf is a simple ZSH utility which can be used to bookmark and access directly any file, 
-associating mnemonics to them. 
+Shelf is a simple ZSH utility which can be used to bookmark and access directly any file
+using mnemonics.
 
 ## Installation
 Just source ``shelf.zsh`` 
@@ -9,13 +9,14 @@ source /path/to/shelf.zsh
 ```
 and include ``_shelf`` in your ``$fpath``. 
  
-### Antibody 
-Antibody users can add 
+### Using Plugin Managers
+Here it this: 
 ```
 ecmma/shelf
 ```
-in their plugin file, then dinamically or statically load their antibody configuration.
-For more details, refer to [getantibody](https://getantibody.github.io/)
+You should know where it goes! In case you don't, 
+refer to [getantibody](https://getantibody.github.io/) 
+or your preferred [plugin manager](https://github.com/unixorn/awesome-zsh-plugins#installation) documentation.
 
 ## Usage 
 ``` zsh 
@@ -26,6 +27,17 @@ usage: shelf [command] <?arg(s)>
 	list 	List all marks
 
 ```
+
+Mark your file with ``shelf``: 
+``` zsh
+shelf add myfile /long/path/to/file.pdf
+```
+
+Your file will be saved and you'll be able to open it using ``shelf`` from anywhere: 
+```zsh 
+shelf open myfile 
+```
+
 
 ## Requirements
 For Linux-based distros, a resource opener such as [xdg-open](https://wiki.archlinux.org/index.php/default_applications#xdg-open)
