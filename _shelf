@@ -1,6 +1,9 @@
 #compdef shelf
+
 _shelf () {
         local cmds cmd ids
+
+        SHELF_MARK_PATH=$HOME/.config/shelf/shelf_list.sh
 
         if [[ "$CURRENT" -lt 2 ]]; then
 
@@ -19,29 +22,33 @@ _shelf () {
                         "add")
                                   ;;
                         "open")
-                                source $HOME/.config/shelf/shelf_list.sh
-
-                                ids=()
-
-                                for key value in ${(@kv)shelf_list};do
-                                        ids+="$key:$value"
-                                done
-
-                                _describe "ids" ids
+                                if [[ -f $SHELF_MARK_PATH ]]; then 
+                                        source $HOME/.config/shelf/shelf_list.sh
+        
+                                        ids=()
+        
+                                        for key value in ${(@kv)shelf_list};do
+                                                ids+="$key:$value"
+                                        done
+        
+                                        _describe "ids" ids
+                                fi
                                 ;;
                         "list")
                                 ;;
                         "remove")
 
-                                source $HOME/.config/shelf/shelf_list.sh
-
-                                ids=()
-
-                                for key value in ${(@kv)shelf_list};do
-                                        ids+="$key:$value"
-                                done
-
-                                _describe "ids" ids
+                                if [[ -f $SHELF_MARK_PATH ]]; then 
+                                        source $HOME/.config/shelf/shelf_list.sh
+        
+                                        ids=()
+        
+                                        for key value in ${(@kv)shelf_list};do
+                                                ids+="$key:$value"
+                                        done
+        
+                                        _describe "ids" ids
+                                fi
                                 ;;
                         *)
                                 ;;
