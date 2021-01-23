@@ -3,8 +3,19 @@ Shelf is a simple ZSH utility, which can be used to bookmark and access directly
 associating mnemonics to them. 
 
 ## Installation
-Just copy ``shelf.zsh`` somewhere in your ``$PATH`` and include ``_shelf`` in your 
-``$fpath``. 
+Just source ``shelf.zsh`` 
+``` zsh 
+source /path/to/shelf.zsh
+```
+and include ``_shelf`` in your ``$fpath``. 
+ 
+### Antibody 
+Antibody users can add 
+```
+ecmma/shelf
+```
+in their plugin file, then dinamically or statically load their antibody configuration.
+For more details, refer to [getantibody](https://getantibody.github.io/)
 
 ## Usage 
 ``` zsh 
